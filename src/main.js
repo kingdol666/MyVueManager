@@ -6,7 +6,12 @@ import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 import * as ElementPlusIcons from '@element-plus/icons-vue'
 
+import axios from '../../MyOrderManager/MyOrderManager/utils/axios'
+
 const app = createApp(App)
+
+// 全局挂载axios
+app.config.globalProperties.$axios = axios
 
 // 注册所有图标组件
 for (const [key, component] of Object.entries(ElementPlusIcons)) {

@@ -6,14 +6,29 @@ import Document from '../views/Document.vue'
 import Analysis from '../views/Analysis.vue'
 import Logs from '../views/Logs.vue'
 import Permission from '../views/Permission.vue'
+import ManuManager from '../views/manager/ManuManager.vue'
+import CategoryManager from '../views/manager/CategoryManager.vue'
 
 const routes = [
+  {
+    path: '/manager/menuManager',
+    name: 'MenuManager',
+    component: ManuManager,
+    meta: { title: '菜品管理' }
+  },
+  {
+    path: '/manager/categoryManager',
+    name: 'CategoryManager',
+    component: CategoryManager,
+    meta: { title: '菜品类别管理' }
+  },
   {
     path: '/dashboard',
     name: 'Dashboard',
     component: Dashboard,
     meta: { title: '工作台' }
   },
+  
   {
     path: '/user',
     name: 'User',

@@ -118,6 +118,18 @@ watch(() => router.currentRoute.value, (to, from) => {
             <el-icon><Monitor /></el-icon>
             <span>工作台</span>
           </el-menu-item>
+          <el-sub-menu index="manager">
+            <template #title>
+              <el-icon><Monitor /></el-icon>
+              <span>管理系统</span>
+            </template>
+            <el-menu-item index="/manager/menuManager" :route="{ path: '/manager/menuManager' }">
+              <span>菜品管理</span>
+            </el-menu-item>
+            <el-menu-item index="/manager/categoryManager" :route="{ path: '/manager/categoryManager' }">
+              <span>菜品类别管理</span>
+            </el-menu-item>
+          </el-sub-menu>
           <el-menu-item index="/user" :route="{ path: '/user' }">
             <el-icon><User /></el-icon>
             <span>用户管理</span>
@@ -145,7 +157,7 @@ watch(() => router.currentRoute.value, (to, from) => {
         </el-menu>
       </el-aside>
 
-      <el-main class="main-content">
+  <el-main class="main-content" style="overflow: auto">
         <transition name="page-transition">
           <router-view v-slot="{ Component }">
             <component :is="Component" />
@@ -278,6 +290,7 @@ watch(() => router.currentRoute.value, (to, from) => {
   position: relative;
   z-index: 1;
   border-right: 1px solid var(--accent-color);
+  overflow-y: scroll;
 }
 
 :root {
@@ -435,7 +448,7 @@ watch(() => router.currentRoute.value, (to, from) => {
   background-color: rgba(10, 26, 47, 0.05);
   backdrop-filter: blur(10px);
   position: relative;
-  overflow: hidden;
+  overflow: auto;
   height: calc(100vh - 60px);
   margin: 0;
   box-sizing: border-box;
